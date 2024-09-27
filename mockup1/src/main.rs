@@ -105,8 +105,12 @@ pub struct AirFleet {
 }
 
 impl AirFleet {
-    pub fn remove_boeing(&mut self) {
-        self.fleet = self.fleet.clone().into_iter().filter(|x: &Airplane| x.company != AirplaneCompany::Boeing).collect();
+    // no & here is good
+    pub fn remove_boeing(mut self) {
+        self.fleet = self.fleet
+                        .into_iter()
+                        .filter(|x: &Airplane| x.company != AirplaneCompany::Boeing)
+                        .collect();
     }
 
     pub fn add_airplane(&mut self, a: Airplane) {
