@@ -105,9 +105,8 @@ pub struct AirFleet {
 }
 
 impl AirFleet {
-    // no & here is good
-    pub fn remove_boeing(mut self) {
-        self.fleet = self.fleet
+    pub fn remove_boeing(&mut self) {
+        self.fleet = self.fleet.to_owned()
                         .into_iter()
                         .filter(|x: &Airplane| x.company != AirplaneCompany::Boeing)
                         .collect();
