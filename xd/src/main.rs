@@ -2,7 +2,7 @@ use core::str;
 use std::io;
 
 fn main() -> io::Result<()> { 
-    let input: String = io::stdin().lines().flat_map(|s| s.map(|mut s|{
+    let input: String = io::stdin().lines().flat_map(|s| s.map(|mut s| {
         s.push('\n');
         s
     })).collect();
