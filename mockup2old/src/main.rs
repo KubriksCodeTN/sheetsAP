@@ -17,13 +17,13 @@ trait Nextable {
 
 impl Nextable for i32 {
     fn gimme_next(&self) -> Option<Self> where Self: Sized {
-        return Some(self + 1);
+        return self.checked_add(1);
     }
 }
 
 impl Nextable for char {
     fn gimme_next(&self) -> Option<Self> where Self: Sized {
-        return Some(char::from_u32(*self as u32 + 1)?);
+        return char::from_u32(*self as u32 + 1);
     }
 }
 
